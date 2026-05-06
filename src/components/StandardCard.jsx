@@ -22,7 +22,7 @@ const StandardCard = ({ standard, searchQuery }) => {
       target="_blank" 
       rel="noopener noreferrer"
       className={cn(
-        "group relative block rounded-lg border p-4 transition-all duration-300 transform",
+        "group relative flex flex-col h-32 rounded-lg border p-4 transition-all duration-300 transform",
         "bg-white shadow-sm hover:-translate-y-1 hover:shadow-md hover:border-muw-accent",
         matchesSearch ? "opacity-100" : "opacity-30 scale-95 grayscale"
       )}
