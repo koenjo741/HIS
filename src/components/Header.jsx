@@ -11,7 +11,7 @@ const Header = ({ searchQuery, setSearchQuery }) => {
             <Activity className="w-6 h-6 text-muw-light" />
           </div>
           <div>
-            <h1 className="text-xl md:text-2xl font-bold tracking-tight">The HIS Standard Map <span className="font-light opacity-80">2026</span></h1>
+            <h1 className="text-xl md:text-2xl font-bold tracking-tight">HIS Standards <span className="font-light opacity-80">2026</span></h1>
             <p className="text-xs md:text-sm text-muw-light/70 font-medium tracking-wide">Clinical Information Flow Journey</p>
           </div>
         </div>
