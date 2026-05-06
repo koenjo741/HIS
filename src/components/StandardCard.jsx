@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Info, ExternalLink } from 'lucide-react';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { CATEGORY_COLOR } from '../data/categories';
 
 // Helper function for tailwind classes
 function cn(...inputs) {
@@ -11,21 +12,27 @@ function cn(...inputs) {
 const StandardCard = ({ standard, searchQuery }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Check if standard matches search query
-  const matchesSearch = searchQuery === '' || 
-    standard.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-    standard.summary.toLowerCase().includes(searchQuery.toLowerCase());
+  // Match on name, summary, OR category (enables dropdown filter)
+  const matchesSearch =
+    searchQuery === '' ||
+    standard.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    standard.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    (standard.category &&
+      standard.category.toLowerCase().includes(searchQuery.toLowerCase()));
+
+  const borderColor = CATEGORY_COLOR[standard.category] ?? '#cbd5e1'; // slate-300 fallback
 
   return (
-    <a 
-      href={standard.url} 
-      target="_blank" 
+    <a
+      href={standard.url}
+      target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "group relative flex flex-col h-32 rounded-lg border p-4 transition-all duration-300 transform",
-        "bg-white shadow-sm hover:-translate-y-1 hover:shadow-md hover:border-muw-accent",
-        matchesSearch ? "opacity-100" : "opacity-30 scale-95 grayscale"
+        'group relative flex flex-col h-32 rounded-lg p-4 transition-all duration-300 transform',
+        'bg-white shadow-sm border border-slate-100 hover:-translate-y-1 hover:shadow-md',
+        matchesSearch ? 'opacity-100' : 'opacity-30 scale-95 grayscale'
       )}
+      style={{ borderLeft: `4px solid ${borderColor}` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -33,30 +40,36 @@ const StandardCard = ({ standard, searchQuery }) => {
         <h3 className="font-semibold text-muw-blue group-hover:text-muw-accent transition-colors flex items-center gap-1.5">
           {standard.name}
         </h3>
-        
+
         <div className="flex items-center gap-1 relative">
           {/* Info Icon with Custom Tooltip */}
           <div className="relative flex items-center justify-center text-slate-400 hover:text-muw-teal">
             <Info className="w-4 h-4 cursor-help" />
-            
+
             {/* Tooltip */}
-            <div className={cn(
-              "absolute z-[100] w-64 p-3 bg-slate-800 text-white text-xs rounded-lg shadow-xl -top-2 left-1/2 -translate-x-1/2 -translate-y-full pointer-events-none transition-all duration-200",
-              isHovered ? "opacity-100 translate-y-[-100%]" : "opacity-0 translate-y-[-90%]"
-            )}>
-              <p className="font-medium mb-1 border-b border-slate-600 pb-1 text-muw-light">{standard.name}</p>
+            <div
+              className={cn(
+                'absolute z-[100] w-64 p-3 bg-slate-800 text-white text-xs rounded-lg shadow-xl -top-2 left-1/2 -translate-x-1/2 -translate-y-full pointer-events-none transition-all duration-200',
+                isHovered
+                  ? 'opacity-100 translate-y-[-100%]'
+                  : 'opacity-0 translate-y-[-90%]'
+              )}
+            >
+              <p className="font-medium mb-1 border-b border-slate-600 pb-1 text-muw-light">
+                {standard.name}
+              </p>
               <p>{standard.summary}</p>
-              
+
               {/* Tooltip Arrow */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-slate-800"></div>
+              <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-slate-800" />
             </div>
           </div>
-          
+
           <ExternalLink className="w-4 h-4 text-slate-300 group-hover:text-muw-accent transition-colors" />
         </div>
       </div>
-      
-      {/* Short summary that's always visible but truncated to add visual weight */}
+
+      {/* Short summary that's always visible but truncated */}
       <p className="text-xs text-slate-500 mt-2 line-clamp-2">
         {standard.summary}
       </p>
