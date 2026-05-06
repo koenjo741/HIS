@@ -170,10 +170,10 @@ export const stages = [
         summary: 'Legacy clinical document architecture for document exchange.',
       },
       {
-        id: 'elga',
-        name: 'ELGA (Austria)',
-        url: 'https://www.elga.gv.at/',
-        summary: 'Austria’s national electronic health record system.',
+        id: 'hl7austria',
+        name: 'HL7 Austria FHIR IGs',
+        url: 'https://fhir.hl7.at/',
+        summary: 'National Base Profiles and Implementation Guides for Austria.',
       },
       {
         id: 'ihe',
@@ -182,22 +182,22 @@ export const stages = [
         summary: 'Orchestration and profiles for sharing documents and imaging across enterprises.',
       },
       {
-        id: 'hl7austria',
-        name: 'HL7 Austria FHIR IGs',
-        url: 'https://fhir.hl7.at/',
-        summary: 'National Base Profiles and Implementation Guides for Austria.',
+        id: 'eehrxf',
+        name: 'EEHRxF',
+        url: 'https://ehr-exchange-format.eu/',
+        summary: 'European Electronic Health Record Exchange Format for cross-border mobility.',
+      },
+      {
+        id: 'elga',
+        name: 'ELGA (Austria)',
+        url: 'https://www.elga.gv.at/',
+        summary: 'Austria’s national electronic health record system.',
       },
       {
         id: 'fmk',
         name: 'FMK (Denmark)',
         url: 'https://trifork.com/?cases=fmk',
         summary: 'Denmark’s shared medication record system.',
-      },
-      {
-        id: 'eehrxf',
-        name: 'EEHRxF',
-        url: 'https://ehr-exchange-format.eu/',
-        summary: 'European Electronic Health Record Exchange Format for cross-border mobility.',
       },
       {
         id: 'kanta',
