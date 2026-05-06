@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search, Activity } from 'lucide-react';
+import pkg from '../../package.json';
 
 const Header = ({ searchQuery, setSearchQuery }) => {
   return (
@@ -10,8 +11,14 @@ const Header = ({ searchQuery, setSearchQuery }) => {
             <Activity className="w-6 h-6 text-muw-light" />
           </div>
           <div>
-            <h1 className="text-xl md:text-2xl font-bold tracking-tight">The HIS Standard Map <span className="font-light opacity-80">2026</span></h1>
-            <p className="text-xs md:text-sm text-muw-light/70 font-medium tracking-wide">Clinical Information Flow Journey</p>
+            <h1 className="text-xl md:text-2xl font-bold tracking-tight flex items-baseline gap-3">
+              The HIS Standard Map <span className="font-light opacity-80">2026</span>
+              <span className="text-[10px] font-normal text-muw-light/40 tracking-widest hidden sm:inline-block">v{pkg.version}</span>
+            </h1>
+            <p className="text-xs md:text-sm text-muw-light/70 font-medium tracking-wide flex items-center gap-2">
+              Clinical Information Flow Journey
+              <span className="text-[9px] font-normal text-muw-light/40 tracking-widest sm:hidden">v{pkg.version}</span>
+            </p>
           </div>
         </div>
         
