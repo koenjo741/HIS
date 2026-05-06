@@ -198,6 +198,12 @@ export const stages = [
         name: 'EEHRxF',
         url: 'https://ehr-exchange-format.eu/',
         summary: 'European Electronic Health Record Exchange Format for cross-border mobility.',
+      },
+      {
+        id: 'kanta',
+        name: 'KANTA (Finland)',
+        url: 'https://www.kanta.fi/en/',
+        summary: 'Finlands Digital Services for the Social Welfare and Healthcare Sector.',
       }
     ]
   },
