@@ -38,6 +38,13 @@ export const stages = [
         url: 'https://ucum.org/',
         summary: 'Standardized syntax for representing units of measure.',
         category: 'Terminologies & Classifications',
+      },
+      {
+        id: 'ieee11073',
+        name: 'IEEE 11073',
+        url: 'https://standards.ieee.org/ieee/11073-10101/5034/',
+        summary: 'IEEE standard for Point-of-Care Medical Device communication',
+        category: 'Terminologies & Classifications',
       }
     ]
   },
