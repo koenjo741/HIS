@@ -147,7 +147,7 @@ export const stages = [
       {
         id: 'hba-smcb',
         name: 'HBA / SMC-B',
-        url: '',
+        url: 'https://www.d-trust.net/de/einsatzfelder/e-health/apotheken',
         summary: 'Hardware-based identity tokens (Professional & Institutional IDs) required for secure access to national infrastructures like ELGA.',
         category: 'Security & Infrastructure',
       },
