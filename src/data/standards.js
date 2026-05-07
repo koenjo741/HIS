@@ -304,6 +304,13 @@ export const stages = [
         url: 'https://www.fda.gov/regulatory-information/selected-amendments-fdc-act/21st-century-cures-act',
         summary: 'US regulation promoting interoperability and patient access to health information.',
         category: 'Legal & Regulatory',
+      },
+      {
+        id: 'gaiaxmed',
+        name: 'GAIA-X-MED',
+        url: 'https://gaia-med.org/',
+        summary: 'Legal and technical governance for the sovereign European health data space and EHDS compliance.',
+        category: 'Security & Infrastructure',
       }
     ]
   }
