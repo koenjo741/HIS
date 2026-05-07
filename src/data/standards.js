@@ -145,6 +145,13 @@ export const stages = [
         category: 'Security & Infrastructure',
       },
       {
+        id: 'hba-smcb',
+        name: 'HBA / SMC-B',
+        url: '',
+        summary: 'Hardware-based identity tokens (Professional & Institutional IDs) required for secure access to national infrastructures like ELGA.',
+        category: 'Security & Infrastructure',
+      },
+      {
         id: 'smartonfhir',
         name: 'SMART on FHIR',
         url: 'https://smarthealthit.org/',
