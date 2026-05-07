@@ -99,7 +99,7 @@ const SearchBox = ({ searchQuery, setSearchQuery, inputClassName, placeholder })
           </div>
           {searchQuery ? (
             <div className="px-3 pb-3 pt-1 text-sm text-slate-700 font-medium">
-              {matchCount} matches
+              {matchCount === 1 ? '1 match' : `${matchCount} matches`}
             </div>
           ) : (
             <ul className="pb-2">
