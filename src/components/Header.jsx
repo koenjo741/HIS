@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Search, Activity } from 'lucide-react';
 import pkg from '../../package.json';
 import { CATEGORIES } from '../data/categories';
+import { stages } from '../data/standards';
 
 /**
  * SearchBox — search input + category-legend dropdown.
@@ -34,6 +35,24 @@ const SearchBox = ({ searchQuery, setSearchQuery, inputClassName, placeholder })
     setOpen(false);
   };
 
+  const matchCount = React.useMemo(() => {
+    if (!searchQuery) return 0;
+    const lowerQuery = searchQuery.toLowerCase();
+    let count = 0;
+    stages.forEach((stage) => {
+      stage.standards.forEach((standard) => {
+        if (
+          standard.name.toLowerCase().includes(lowerQuery) ||
+          standard.summary.toLowerCase().includes(lowerQuery) ||
+          (standard.category && standard.category.toLowerCase().includes(lowerQuery))
+        ) {
+          count++;
+        }
+      });
+    });
+    return count;
+  }, [searchQuery]);
+
   return (
     <div ref={containerRef} className="relative w-full">
       {/* Search Icon */}
@@ -46,7 +65,10 @@ const SearchBox = ({ searchQuery, setSearchQuery, inputClassName, placeholder })
         className={inputClassName}
         placeholder={placeholder}
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={(e) => {
+          setSearchQuery(e.target.value);
+          setOpen(true);
+        }}
         onFocus={() => setOpen(true)}
         aria-label="Search standards or filter by category"
         aria-haspopup="listbox"
@@ -72,31 +94,36 @@ const SearchBox = ({ searchQuery, setSearchQuery, inputClassName, placeholder })
         >
           <div className="px-3 pt-2.5 pb-1">
             <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
-              Filter by category
+              {searchQuery ? 'Filter by text' : 'Filter by category'}
             </p>
           </div>
-          <ul className="pb-2">
-            {CATEGORIES.map((cat) => (
-              <li key={cat.id}>
-                <button
-                  role="option"
-                  onClick={() => handleCategoryClick(cat.label)}
-                  className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-slate-50 transition-colors group"
-                >
-                  {/* Color swatch */}
-                  <span
-                    className="flex-shrink-0 w-3 h-3 rounded-full border border-black/10 shadow-sm"
-                    style={{ backgroundColor: cat.color }}
-                    aria-hidden="true"
-                  />
-                  <span className="text-sm text-slate-700 group-hover:text-slate-900 font-medium">
-                    {cat.label}
-                  </span>
-
-                </button>
-              </li>
-            ))}
-          </ul>
+          {searchQuery ? (
+            <div className="px-3 pb-3 pt-1 text-sm text-slate-700 font-medium">
+              {matchCount} matches
+            </div>
+          ) : (
+            <ul className="pb-2">
+              {CATEGORIES.map((cat) => (
+                <li key={cat.id}>
+                  <button
+                    role="option"
+                    onClick={() => handleCategoryClick(cat.label)}
+                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-slate-50 transition-colors group"
+                  >
+                    {/* Color swatch */}
+                    <span
+                      className="flex-shrink-0 w-3 h-3 rounded-full border border-black/10 shadow-sm"
+                      style={{ backgroundColor: cat.color }}
+                      aria-hidden="true"
+                    />
+                    <span className="text-sm text-slate-700 group-hover:text-slate-900 font-medium">
+                      {cat.label}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       )}
     </div>
