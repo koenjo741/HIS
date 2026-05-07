@@ -311,6 +311,13 @@ export const stages = [
         url: 'https://gaia-med.org/',
         summary: 'Legal and technical governance for the sovereign European health data space and EHDS compliance.',
         category: 'Security & Infrastructure',
+      },
+      {
+        id: 'iso13485',
+        name: 'ISO 13485',
+        url: 'https://www.iso.org/standard/59752.html',
+        summary: 'Quality Management System standard for medical device manufacturers, required for EU-MDR compliance.',
+        category: 'Legal & Regulatory',
       }
     ]
   }
