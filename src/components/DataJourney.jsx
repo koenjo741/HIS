@@ -4,7 +4,7 @@ import { stages } from '../data/standards';
 
 const DataJourney = ({ searchQuery }) => {
   return (
-    <div className="p-6 md:p-10 min-h-full">
+    <div className="p-6 md:p-10 xl:pt-4 min-h-full">
       <div className="flex flex-col xl:flex-row xl:items-start gap-8 xl:gap-4 max-w-[1800px] mx-auto pb-10">
         {stages.map((stage, index) => (
           <React.Fragment key={stage.id}>

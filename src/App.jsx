@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Header from './components/Header';
 import DataJourney from './components/DataJourney';
+import StageTitleCard from './components/StageTitleCard';
+import { stages } from './data/standards';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -27,6 +29,27 @@ function App() {
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-muw-light">
       <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+
+      {/* Desktop-only fixed title cards row (never scrolls) */}
+      <div className="hidden xl:block flex-shrink-0 px-10 pt-8 pb-3" style={{ backgroundColor: '#cfedff' }}>
+        <div className="flex flex-row items-start gap-4 max-w-[1800px] mx-auto">
+          {stages.map((stage, index) => (
+            <React.Fragment key={stage.id}>
+              <div
+                className="flex-1 min-w-[300px] w-[320px] animate-slide-up"
+                style={{ animationDelay: `${(index + 1) * 100}ms` }}
+              >
+                <StageTitleCard stage={stage} index={index + 1} />
+              </div>
+
+              {/* Invisible spacer matching the arrow column width */}
+              {index < stages.length - 1 && (
+                <div className="w-12 flex-shrink-0" />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
 
       {/* Scroll container */}
       <main
