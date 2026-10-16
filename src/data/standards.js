@@ -56,7 +56,7 @@ export const stages = [
       {
         id: 'openehr',
         name: 'openEHR',
-        url: 'https://www.openehr.org/',
+        url: 'https://openehr.org/',
         summary: 'Multi-level modeling for future-proof electronic health records.',
         category: 'Technical Exchange Standards',
       },
@@ -91,7 +91,7 @@ export const stages = [
       {
         id: 'atc',
         name: 'ATC',
-        url: 'https://www.whocc.no/atc_ddd_index/',
+        url: 'https://atcddd.fhi.no/atc_ddd_index/',
         summary: 'Anatomical Therapeutic Chemical classification system for active substances.',
         category: 'Terminologies & Classifications',
       },
@@ -119,7 +119,7 @@ export const stages = [
       {
         id: 'icpc',
         name: 'ICPC',
-        url: 'http://www.ph3c.org/4daction/w3_CatVisu/en/icpc.html?wCatIDAdmin=1106',
+        url: 'https://www.who.int/standards/classifications/other-classifications/international-classification-of-primary-care',
         summary: 'International Classification of Primary Care.',
         category: 'Terminologies & Classifications',
       }
@@ -147,7 +147,7 @@ export const stages = [
       {
         id: 'hba-smcb',
         name: 'HBA / SMC-B',
-        url: 'https://www.d-trust.net/de/einsatzfelder/e-health/apotheken',
+        url: 'https://www.d-trust.net/de/einsatzfelder/e-health',
         summary: 'Hardware-based identity tokens (Professional & Institutional IDs) required for secure access to national infrastructures like ELGA.',
         category: 'Security & Infrastructure',
       },
@@ -156,6 +156,13 @@ export const stages = [
         name: 'SMART on FHIR',
         url: 'https://smarthealthit.org/',
         summary: 'App ecosystem for healthcare leveraging FHIR and OAuth2.',
+        category: 'Technical Exchange Standards',
+      },
+      {
+        id: 'cdshooks',
+        name: 'CDS Hooks',
+        url: 'https://cds-hooks.hl7.org/',
+        summary: 'Specification for integrating Clinical Decision Support services directly into EHR workflows.',
         category: 'Technical Exchange Standards',
       },
       {
@@ -273,8 +280,15 @@ export const stages = [
       {
         id: 'ehds',
         name: 'EHDS',
-        url: 'https://health.ec.europa.eu/ehealth-digital-health-and-care/european-health-data-space_en',
+        url: 'https://health.ec.europa.eu/ehealth-digital-health-and-care/european-health-data-space-regulation-ehds_en',
         summary: 'European Health Data Space enabling health data market and secondary use.',
+        category: 'Legal & Regulatory',
+      },
+      {
+        id: 'healthdataat',
+        name: 'HealthData@AT',
+        url: 'https://goeg.at/healthdata_at_secondary_use',
+        summary: 'Austrian platform and governance body for secondary health data use within the EHDS framework.',
         category: 'Legal & Regulatory',
       },
       {

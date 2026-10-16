@@ -1,4 +1,3 @@
-import React from 'react';
 
 const StageTitleCard = ({ stage, index }) => (
   <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden relative group h-32">
